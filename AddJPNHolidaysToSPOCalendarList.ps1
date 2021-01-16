@@ -5,6 +5,9 @@ param(
     [string]$calendarListName
 )
 
+# Install PnP PowerShell Module.
+#Install-Module SharePointPnPPowerShellOnline
+
 # Get Japan holidays list (CSV) from Cabinet Office in JAPAN
 $holidayList = Invoke-WebRequest -uri "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv"
 $holidayListUTF8 = [System.Text.Encoding]::GetEncoding("Shift_JIS").GetString( [System.Text.Encoding]::GetEncoding("ISO-8859-1").GetBytes($holidayList.Content))
